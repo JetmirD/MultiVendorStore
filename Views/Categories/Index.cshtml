@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MultiVendorStore.Models.Category>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="container col-10 ">
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1>Category</h1>
+        </div>
+        <div class="col-6 text-end">
+            <p>
+                <a asp-action="Create" class="btn btn-info"><i class="bi bi-plus-circle-dotted"></i> Create New</a>
+            </p>
+        </div>
+    </div>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td class="text-center">
+                <div class="w-75 btn-group text-center" role="group">
+                    <a asp-action="Edit" asp-route-id="@item.Category_Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-fill"></i>  Edit</a>
+                     @*<a asp-action="Details" asp-route-id="@item.Category_Id" class="btn btn-info"><i class="bi bi-eye"></i>  Details</a> *@
+                     <a asp-action="Delete" asp-route-id="@item.Category_Id" class="btn btn-danger mx-2"><i class="bi bi-trash3"></i>  Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
