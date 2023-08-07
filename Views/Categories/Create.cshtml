@@ -1,0 +1,57 @@
+﻿@model MultiVendorStore.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container col-10 ">
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="text-center">
+                <h4 class="text-white">Create New Category</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ccard-body p-4">
+
+<div class="row">
+
+        <form asp-action="Create">
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group ">
+                <label asp-for="DisplayOrder" class="control-label"></label>
+                <input asp-for="DisplayOrder" class="form-control" />
+                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            
+                <div class="row pt-3">
+                    <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-primary form-control">
+                        <i class="bi bi-plus"></i> Add
+                    </button>
+
+                    </div>
+                    <div class="col-6 col-md-3">
+                    <a asp-action="Index" class="btn btn-secondary form-control"> <i class="bi bi-arrow-return-left"></i> Back to List</a>
+
+                    </div>
+                    
+                </div>
+        </form>
+</div>
+</div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
